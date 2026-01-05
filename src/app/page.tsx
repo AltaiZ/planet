@@ -1,12 +1,23 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import InteractiveSelector from "@/components/ui/interactive-selector";
 
-const page = () => {
+const DemoOne = () => {
   return (
-    <div>
-     fgawsg
+    <div className="w-full h-min-screen relative">
+      <div className="w-full h-screen absolute top-0">
+        <Image
+          fill
+          alt="galaxy"
+          src={
+            "/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg"
+          }
+          quality={100}
+        ></Image>
+      </div>
+      <InteractiveSelector />
     </div>
   );
 };
 
-export default page;
+export default DemoOne;
