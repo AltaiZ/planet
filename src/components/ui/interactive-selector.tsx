@@ -103,7 +103,7 @@ const router = useRouter()
               borderRadius: 0,
               borderWidth: "2px",
               borderStyle: "solid",
-              borderColor: activeIndex === index ? "#fff" : "#292929",
+              borderColor: activeIndex === index ? "#000000" : "#292929",
               cursor: "pointer",
               backgroundColor: "#18181b",
               boxShadow:
