@@ -11,7 +11,7 @@ const images: string[] = [
   "/exoplanets5.png",
 ];
 
-function HorizontalScrollCarouselDemo() {
+function HorizontalScrollCarouselDemo() { 
   return (
     <div 
       className="min-h-fit bg-cover bg-center bg-fixed bg-no-repeat"
