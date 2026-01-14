@@ -20,12 +20,11 @@ function HorizontalScrollCarouselDemo() {
         backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/1352911.png')` 
       }}
     >
-      {/* 1. Progress Bar */}
       <div className="relative z-[100]">
         <ScrollProgressBar 
           position="top-left" 
           type="circle"
-          color="#22c55e" // Ногоон өнгө (Green-500)
+          color="#22c55e" 
           strokeSize={6}
           showPercentage={true}
         />
@@ -33,7 +32,6 @@ function HorizontalScrollCarouselDemo() {
 
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
-      {/* 2. Navbar болон Агуулга */}
       <div className="bg-black/40 min-h-screen backdrop-blur-sm relative z-10">
         <TabsDemo />
 
@@ -50,12 +48,10 @@ function HorizontalScrollCarouselDemo() {
           </p>
         </div>
 
-        {/* 3. Карусель хэсэг */}
         <div className="py-10">
           <HorizontalScrollCarousel images={images} />
         </div>
 
-        {/* 4. Мэдээллийн картууд */}
         <div className="max-w-6xl mx-auto px-6 py-32">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 border border-white/5 bg-white/[0.03] backdrop-blur-md rounded-2xl transition-all duration-500 hover:border-green-500/50 hover:bg-white/[0.07] group">

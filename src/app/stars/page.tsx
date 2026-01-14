@@ -1,8 +1,8 @@
 "use client";
 
 import { HorizontalScrollCarousel } from "@/components/ui/horizontal-scroll-carousel";
-import { TabsDemo } from "@/components/ui/tabs"; // Navbar нэмэв
-import ScrollProgressBar from "@/components/ui/scroll-progress-bar"; // Progress bar нэмэв
+import { TabsDemo } from "@/components/ui/tabs"; 
+import ScrollProgressBar from "@/components/ui/scroll-progress-bar";
 
 const starImages: string[] = [
   "/stars1.webp", 
@@ -20,12 +20,11 @@ function StarsCarouselDemo() {
         backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/starsbg.jpeg')` 
       }}
     >
-      {/* 1. Scroll Progress Bar - Цэнхэр өнгөтэй */}
       <div className="relative z-[100]">
         <ScrollProgressBar 
           position="top-left" 
           type="circle"
-          color="#3b82f6" // Stars хэсэгт зориулж цэнхэр өнгө (blue-500)
+          color="#3b82f6" 
           strokeSize={6}
           showPercentage={true}
         />
@@ -33,9 +32,8 @@ function StarsCarouselDemo() {
 
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
-      {/* 2. Үндсэн агуулга болон Navbar */}
       <div className="bg-black/40 min-h-screen backdrop-blur-sm relative z-10">
-        <TabsDemo /> {/* Navbar энд байрлана */}
+        <TabsDemo /> 
 
         <div className="max-w-6xl mx-auto px-6 py-32 text-center">
           <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8 tracking-tighter uppercase leading-none">
