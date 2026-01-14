@@ -1,6 +1,8 @@
 "use client";
 
 import { HorizontalScrollCarousel } from "@/components/ui/horizontal-scroll-carousel";
+import { TabsDemo } from "@/components/ui/tabs"; // Navbar нэмэв
+import ScrollProgressBar from "@/components/ui/scroll-progress-bar"; // Progress bar нэмэв
 
 const starImages: string[] = [
   "/stars1.webp", 
@@ -13,15 +15,29 @@ const starImages: string[] = [
 function StarsCarouselDemo() {
   return (
     <div 
-          className="min-h-fit bg-cover bg-center bg-fixed bg-no-repeat relative"
-          style={{ 
-            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%),url('/starsbg.jpeg')` 
-          }}
-        >
-          <div className="absolute inset-0 bg-black/20 -z-10"></div>
-    
-          <div className="relative z-10">
-            <div className="max-w-6xl mx-auto px-6 py-32 text-center">
+      className="relative min-h-[200vh] bg-cover bg-center bg-fixed bg-no-repeat"
+      style={{ 
+        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/starsbg.jpeg')` 
+      }}
+    >
+      {/* 1. Scroll Progress Bar - Цэнхэр өнгөтэй */}
+      <div className="relative z-[100]">
+        <ScrollProgressBar 
+          position="top-left" 
+          type="circle"
+          color="#3b82f6" // Stars хэсэгт зориулж цэнхэр өнгө (blue-500)
+          strokeSize={6}
+          showPercentage={true}
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-black/20 -z-10"></div>
+
+      {/* 2. Үндсэн агуулга болон Navbar */}
+      <div className="bg-black/40 min-h-screen backdrop-blur-sm relative z-10">
+        <TabsDemo /> {/* Navbar энд байрлана */}
+
+        <div className="max-w-6xl mx-auto px-6 py-32 text-center">
           <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8 tracking-tighter uppercase leading-none">
             STARS
           </h1>
@@ -32,24 +48,24 @@ function StarsCarouselDemo() {
             luminous points in the sky.
           </p>
         </div>
-    
-            <div className="py-10">
-              <HorizontalScrollCarousel images={starImages} />
+
+        <div className="py-10">
+          <HorizontalScrollCarousel images={starImages} />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl rounded-3xl space-y-4 hover:border-blue-500/40 transition-all duration-500 group">
+              <span className="text-blue-400 font-bold uppercase tracking-widest text-xs">Evolution</span>
+              <h4 className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors">Life Cycle of Stars</h4>
+              <p className="text-lg leading-relaxed text-gray-400 font-light">
+                Stars are born within the clouds of dust. Turbulence deep within these 
+                clouds gives rise to knots with sufficient mass that the gas and dust 
+                can begin to collapse under its own gravity.
+              </p>
             </div>
-    
-            <div className="max-w-6xl mx-auto px-6 py-32">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl rounded-3xl space-y-4 hover:border-blue-500/40 transition-all duration-500 group">
-                   <span className="text-blue-400 font-bold uppercase tracking-widest text-xs">Evolution</span>
-                    <h4 className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors">Life Cycle of Stars</h4>
-                    <p className="text-lg leading-relaxed text-gray-400 font-light">
-                      Stars are born within the clouds of dust. Turbulence deep within these 
-                      clouds gives rise to knots with sufficient mass that the gas and dust 
-                      can begin to collapse under its own gravity.
-                    </p>
-                  </div>
-    
-                <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl rounded-3xl space-y-4 hover:border-yellow-500/40 transition-all duration-500 group">
+
+            <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl rounded-3xl space-y-4 hover:border-yellow-500/40 transition-all duration-500 group">
               <span className="text-yellow-400 font-bold uppercase tracking-widest text-xs">Spectral Type</span>
               <h4 className="text-3xl font-bold text-white group-hover:text-yellow-400 transition-colors">Classification</h4>
               <p className="text-lg leading-relaxed text-gray-400 font-light">
@@ -58,13 +74,13 @@ function StarsCarouselDemo() {
                 to the coolest (M).
               </p>
             </div>
-              </div>
-            </div>
           </div>
-    
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
         </div>
-      );
-    }
-    
+      </div>
+
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    </div>
+  );
+}
+
 export default StarsCarouselDemo;

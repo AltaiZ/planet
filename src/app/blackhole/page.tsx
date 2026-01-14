@@ -1,67 +1,75 @@
 "use client";
 
 import { HorizontalScrollCarousel } from "@/components/ui/horizontal-scroll-carousel";
+import { TabsDemo } from "@/components/ui/tabs"; // Navbar нэмэв
+import ScrollProgressBar from "@/components/ui/scroll-progress-bar"; // Progress bar нэмэв
 
-const blackHoleImages: string[] = [
-  "/blackhole1.webp",
-  "/blackhole2.jpg", 
-  "/blackhole3.png",
-  "/blackhole4.jpg", 
-  "/blackhole5.jpg",
+const solarImages: string[] = [
+  "/earth.jpg",
+  "/mars.jpg",
+  "/jupiter.jpg",
+  "/saturn.jpg",
+  "/neptune.jpg",
 ];
 
-function BlackHoleCarouselDemo() {
+function SolarSystemDemo() {
   return (
-    <div 
-      className="min-h-fit bg-cover bg-center bg-fixed bg-no-repeat relative"
+   <div 
+      className="relative min-h-[200vh] bg-cover bg-center bg-fixed bg-no-repeat"
       style={{ 
-        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/blackholebg.png')` 
+        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/solarbg.jpg')` 
       }}
     >
+      {/* 1. Scroll Progress Bar - Шар өнгөтэй */}
+      <div className="relative z-[100]">
+        <ScrollProgressBar 
+          position="top-left" 
+          type="circle"
+          color="#eab308" // Solar System-д зориулж шар өнгө (yellow-500)
+          strokeSize={6}
+          showPercentage={true}
+        />
+      </div>
+
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
-      <div className="relative z-10">
+      {/* 2. Үндсэн агуулга болон Navbar */}
+      <div className="bg-black/40 min-h-screen backdrop-blur-sm relative z-10">
+        <TabsDemo /> {/* Navbar энд байрлана */}
+
         <div className="max-w-6xl mx-auto px-6 py-32 text-center">
-          <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter uppercase italic">
-            Black <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-white to-blue-500">Holes</span>
+          <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8 tracking-tighter uppercase leading-none">
+            Solar System
           </h1>
-          <div className="w-24 h-1 bg-orange-500 mx-auto mb-10 shadow-[0_0_20px_rgba(249,115,22,1)]"></div>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-            A black hole is a region of spacetime where gravity is so strong that 
-            nothing—no particles or even electromagnetic radiation such as light—can escape from it.
+          <div className="w-20 h-1 bg-yellow-500 mx-auto mb-10 shadow-[0_0_20px_rgba(234,179,8,1)]"></div>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed text-balance">
+            Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
           </p>
         </div>
 
         <div className="py-10">
-          <HorizontalScrollCarousel images={blackHoleImages} />
+          <HorizontalScrollCarousel images={solarImages} />
         </div>
 
         <div className="max-w-6xl mx-auto px-6 py-32">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl transition-all hover:border-orange-500/50 group">
-              <h3 className="text-orange-500 font-bold mb-4 uppercase tracking-widest text-sm">The Boundary</h3>
-              <h4 className="text-2xl text-white mb-3 font-semibold group-hover:text-orange-400 transition-colors">Event Horizon</h4>
-              <p className="text-gray-400 leading-relaxed">
-                The "point of no return." Beyond this boundary, the escape velocity 
-                exceeds the speed of light.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-8 border border-white/5 bg-white/[0.03] backdrop-blur-md rounded-2xl transition-all duration-500 hover:border-yellow-500/50 hover:bg-white/[0.07] group">
+              <span className="text-yellow-500 font-bold uppercase tracking-widest text-[10px] mb-2 block">Origin</span>
+              <h3 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors mb-3">
+                4.5 Billion Years Old
+              </h3>
+              <p className="text-base leading-relaxed text-gray-400 font-light">
+                Our solar system formed from a dense cloud of interstellar gas and dust. The cloud collapsed, possibly due to the shockwave of a nearby exploding star, called a supernova.
               </p>
             </div>
 
-            <div className="p-8 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl transition-all hover:border-blue-500/50 group">
-              <h3 className="text-blue-500 font-bold mb-4 uppercase tracking-widest text-sm">The Core</h3>
-              <h4 className="text-2xl text-white mb-3 font-semibold group-hover:text-blue-400 transition-colors">Singularity</h4>
-              <p className="text-gray-400 leading-relaxed">
-                At the center of a black hole, matter is crushed into a region of 
-                infinite density and zero volume.
-              </p>
-            </div>
-
-            <div className="p-8 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl transition-all hover:border-purple-500/50 group">
-              <h3 className="text-purple-500 font-bold mb-4 uppercase tracking-widest text-sm">Light Trap</h3>
-              <h4 className="text-2xl text-white mb-3 font-semibold group-hover:text-purple-400 transition-colors">Accretion Disk</h4>
-              <p className="text-gray-400 leading-relaxed">
-                A rotating disk of matter formed by accretion around a central 
-                massive body, emitting intense radiation.
+            <div className="p-8 border border-white/5 bg-white/[0.03] backdrop-blur-md rounded-2xl transition-all duration-500 hover:border-red-500/50 hover:bg-white/[0.07] group">
+              <span className="text-red-500 font-bold uppercase tracking-widest text-[10px] mb-2 block">Classification</span>
+              <h3 className="text-2xl font-bold text-white group-hover:text-red-400 transition-colors mb-3">
+                Terrestrial & Giants
+              </h3>
+              <p className="text-base leading-relaxed text-gray-400 font-light">
+                The four inner planets are rocky terrestrial worlds. The four outer planets are giants: Jupiter and Saturn are gas giants, while Uranus and Neptune are ice giants.
               </p>
             </div>
           </div>
@@ -73,4 +81,4 @@ function BlackHoleCarouselDemo() {
   );
 }
 
-export default BlackHoleCarouselDemo;
+export default SolarSystemDemo;
