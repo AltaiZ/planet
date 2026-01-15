@@ -8,7 +8,7 @@ import { HiRefresh } from "react-icons/hi";
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animatedOptions, setAnimatedOptions] = useState([]);
+  const [animatedOptions, setAnimatedOptions] = useState<number[]>([]);
 const router = useRouter()
   const options = [
     {
@@ -43,14 +43,14 @@ const router = useRouter()
     },
   ];
 
-  const handleOptionClick = (index) => {
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-    }
-  };
+const handleOptionClick = (index: number) => {
+  if (index !== activeIndex) {
+    setActiveIndex(index);
+  }
+};
 
   useEffect(() => {
-    const timers = [];
+    const timers: NodeJS.Timeout[] = [];
 
     options.forEach((_, i) => {
       const timer = setTimeout(() => {

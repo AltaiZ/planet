@@ -5,11 +5,11 @@ import { TabsDemo } from "@/components/ui/tabs";
 import ScrollProgressBar from "@/components/ui/scroll-progress-bar";
 
 const solarImages: string[] = [
-  "/earth.jpg",
-  "/mars.jpg",
-  "/jupiter.jpg",
-  "/saturn.jpg",
-  "/neptune.jpg",
+  "/black.jpg",
+  "/black1.jpg",
+  "/black2.png",
+  "/black3.jpg",
+  "/black4.jpg",
 ];
 
 function SolarSystemDemo() {
@@ -17,7 +17,7 @@ function SolarSystemDemo() {
    <div 
       className="relative min-h-[200vh] bg-cover bg-center bg-fixed bg-no-repeat"
       style={{ 
-        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/solarbg.jpg')` 
+        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%), url('/1289303.png')` 
       }}
     >
       <div className="relative z-[100]">
@@ -37,11 +37,11 @@ function SolarSystemDemo() {
 
         <div className="max-w-6xl mx-auto px-6 py-32 text-center">
           <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8 tracking-tighter uppercase leading-none">
-            Solar System
+            Blackhole Basics
           </h1>
           <div className="w-20 h-1 bg-yellow-500 mx-auto mb-10 shadow-[0_0_20px_rgba(234,179,8,1)]"></div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed text-balance">
-            Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
+            Black holes are regions of spacetime where gravity is so strong that nothing, not even light, can escape their pull.
           </p>
         </div>
 
